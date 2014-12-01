@@ -1,8 +1,9 @@
 .row
   .col-sm-12
     %h1.inline_block= @experience.title
-    = link_to edit_experience_path(@experience) do 
-      %i.glyphicon.glyphicon-pencil
+    - if can? :edit, @experience
+      = link_to edit_experience_path(@experience) do 
+        %i.glyphicon.glyphicon-pencil
     %p= @experience.description
 #canvas.canvas
 = render 'execute_javascript', javascript: @experience.javascript

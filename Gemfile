@@ -39,6 +39,8 @@ gem 'simple_form'
 # For pagination
 gem 'will_paginate'
 
+gem "cancan"
+
 group :development do
   # Console in error page
   gem 'binding_of_caller'

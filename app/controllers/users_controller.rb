@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :require_login, only: [:new, :create]
   # GET /users
@@ -29,6 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        make_admin_if_first @user
         login @user
         format.html { redirect_to categories_path, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
@@ -36,6 +36,12 @@ class UsersController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def make_admin_if_first(user)
+    if User.count == 1
+      user.update_attribute(:role, 'admin')
     end
   end
 

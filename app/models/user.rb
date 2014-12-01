@@ -10,11 +10,16 @@ class User < ActiveRecord::Base
   before_create { set_unique_random_field_to :authentication_token }
   before_save { self.email.downcase! }
 
-  has_many :password_resets
+  has_many :password_resets, dependent: :destroy
+  has_many :evaluations, dependent: :destroy
 
   def set_unique_random_field_to(column_name)
     begin
       self[column_name] = SecureRandom.urlsafe_base64
     end while self.class.exists?(column_name => self[column_name])
+  end
+
+  def role?(a_role)
+    role == a_role
   end
 end

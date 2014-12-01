@@ -52,9 +52,13 @@ class ExperiencesController < ApplicationController
   end
 
   def random
-    offset = rand(Experience.count)
-    @experience = Experience.offset(offset).first
-    render 'show'
+    if Experience.count == 0
+      redirect_to categories_path, alert: 'There are no experiences yet'
+    else
+      offset = rand(Experience.count)
+      @experience = Experience.offset(offset).first
+      render 'show'
+    end
   end
 
   # DELETE /experiences/1

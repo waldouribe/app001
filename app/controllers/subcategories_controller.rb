@@ -1,5 +1,6 @@
 class SubcategoriesController < ApplicationController
-  before_action :set_subcategory, only: [:show, :edit, :update, :destroy]
+  before_action :load_subcategory, only: :create
+  load_and_authorize_resource
 
   # GET /subcategories
   # GET /subcategories.json
@@ -63,8 +64,8 @@ class SubcategoriesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_subcategory
-      @subcategory = Subcategory.find(params[:id])
+    def load_subcategory
+      @subcategory = Subcategory.new(subcategory_params)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
