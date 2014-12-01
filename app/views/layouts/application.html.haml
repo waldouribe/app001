@@ -1,0 +1,12 @@
+!!!
+%html{lang: 'en'}
+  = render 'shared/head'
+  %body.background_main
+    .container_main
+      = render 'shared/navigation_bar'
+      .container.body
+        .row
+          .col-md-12
+            = render 'shared/alerts'
+        = yield
+      = render 'shared/footer'

@@ -1,0 +1,10 @@
+= simple_form_for(@evaluation) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :experience
+    = f.association :user
+    = f.input :grade
+
+  .form-actions
+    = f.button :submit

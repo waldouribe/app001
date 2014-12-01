@@ -1,0 +1,6 @@
+:javascript
+  var execute_javascript = function(){
+    alert("#{@experience.javascript}");
+  }
+  $(document).ready(execute_javascript);
+  $(document).on('page:load', execute_javascript);

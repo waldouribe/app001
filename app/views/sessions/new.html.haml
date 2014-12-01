@@ -1,0 +1,9 @@
+.row
+  .col-md-12
+    .center_text
+      %h1 Login
+    .center
+      = simple_form_for(:sessions, :url => sessions_path) do |f|
+        = f.input :email
+        = f.input :password
+        = f.button :submit, 'Login', class: 'btn-primary pull-right', data: {disable_with: 'Logging...'}

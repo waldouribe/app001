@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Experience:
+  = @evaluation.experience
+%p
+  %b User:
+  = @evaluation.user
+%p
+  %b Grade:
+  = @evaluation.grade
+
+= link_to 'Edit', edit_evaluation_path(@evaluation)
+\|
+= link_to 'Back', evaluations_path

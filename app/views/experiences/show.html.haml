@@ -1,0 +1,20 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @experience.title
+%p
+  %b Description:
+  = @experience.description
+%p
+  %b Javascript:
+  
+%p
+  %b Subcategory:
+  = @experience.subcategory
+
+= link_to 'Edit', edit_experience_path(@experience)
+\|
+= link_to 'Back', experiences_path
+
+= render 'execute_javascript'

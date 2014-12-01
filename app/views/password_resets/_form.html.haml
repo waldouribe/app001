@@ -1,0 +1,11 @@
+= simple_form_for(@password_reset) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :user
+    = f.input :token
+    = f.input :expires_at
+    = f.input :used
+
+  .form-actions
+    = f.button :submit

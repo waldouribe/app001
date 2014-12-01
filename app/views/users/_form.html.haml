@@ -1,0 +1,10 @@
+= simple_form_for(@user) do |f|
+  .form-inputs
+    = f.input :name
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation
+
+  .form-actions.pull-right
+    = f.button :submit, 'Register', class: 'btn btn-primary'
+  .clearfix
