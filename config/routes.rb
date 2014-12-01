@@ -6,7 +6,11 @@ App001::Application.routes.draw do
   get "home/index"
   delete 'logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :experiences
+  resources :experiences do
+    collection do 
+      get :random
+    end
+  end
   resources :subcategories
   resources :categories
   resources :password_resets

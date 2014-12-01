@@ -1,20 +1,8 @@
-%p#notice= notice
-
-%p
-  %b Title:
-  = @experience.title
-%p
-  %b Description:
-  = @experience.description
-%p
-  %b Javascript:
-  
-%p
-  %b Subcategory:
-  = @experience.subcategory
-
-= link_to 'Edit', edit_experience_path(@experience)
-\|
-= link_to 'Back', experiences_path
-
-= render 'execute_javascript'
+.row
+  .col-sm-12
+    %h1.inline_block= @experience.title
+    = link_to edit_experience_path(@experience) do 
+      %i.glyphicon.glyphicon-pencil
+    %p= @experience.description
+#canvas.canvas
+= render 'execute_javascript', javascript: @experience.javascript

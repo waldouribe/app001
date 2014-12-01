@@ -1,7 +1,12 @@
-%p
-  %b Name:
-  = @user.name
-%p
-  %b Email:
-  = @user.email
+.row
+  .col-sm-8.col-sm-offset-1.center_text
+    %h1.inline_block Profile
+    = link_to edit_user_path(current_user) do
+      %i.glyphicon.glyphicon-pencil
+    %p
+      %b Name:
+      = @user.name
+    %p
+      %b Email:
+      = @user.email
 

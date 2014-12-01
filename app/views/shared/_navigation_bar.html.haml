@@ -13,6 +13,16 @@
         %li
           = link_to root_path do
             %i.glyphicon.glyphicon-home
+        - if logged_in?
+          %li
+            = link_to categories_path do
+              %i.glyphicon.glyphicon-list
+        - if logged_in?
+          %li
+            = link_to random_experiences_path do
+              %i.glyphicon.glyphicon-random
+
+            
       %nav.collapse.navbar-collapse.bs-navbar-collapse{role: "navigation"}
         - if logged_in?
           = render 'shared/logged_in_menu'

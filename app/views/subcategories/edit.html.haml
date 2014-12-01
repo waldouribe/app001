@@ -1,7 +1,5 @@
-%h1 Editing subcategory
+.row
+  .col-sm-8.col-sm-offset-1
+    %h1.center_text Editing subcategory
+    = render 'form'
 
-= render 'form'
-
-= link_to 'Show', @subcategory
-\|
-= link_to 'Back', subcategories_path

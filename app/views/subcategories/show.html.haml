@@ -1,12 +1,8 @@
-%p#notice= notice
-
-%p
-  %b Category:
-  = @subcategory.category
-%p
-  %b Name:
-  = @subcategory.name
-
-= link_to 'Edit', edit_subcategory_path(@subcategory)
-\|
-= link_to 'Back', subcategories_path
+.row
+  .col-sm-8.col-sm-offset-1
+    %h1.inline_block= "#{@subcategory.category} / #{@subcategory.name}"
+    = link_to edit_subcategory_path(@subcategory) do
+      %i.glyphicon.glyphicon-pencil
+    %ul
+      - @subcategory.experiences.each do |experience|
+        %li= link_to experience, experience

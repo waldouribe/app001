@@ -1,11 +1,10 @@
 = simple_form_for(@experience) do |f|
-  = f.error_notification
-
   .form-inputs
+    = f.association :subcategory
     = f.input :title
     = f.input :description
     = f.input :javascript
-    = f.association :subcategory
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-primary pull-right'
+    .clearfix

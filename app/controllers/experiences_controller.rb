@@ -51,6 +51,12 @@ class ExperiencesController < ApplicationController
     end
   end
 
+  def random
+    offset = rand(Experience.count)
+    @experience = Experience.offset(offset).first
+    render 'show'
+  end
+
   # DELETE /experiences/1
   # DELETE /experiences/1.json
   def destroy
