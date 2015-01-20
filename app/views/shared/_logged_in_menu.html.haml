@@ -5,7 +5,7 @@
       %b.caret
     %ul.dropdown-menu
       %li
-        = link_to 'Profile', current_user
+        = link_to 'Profile', current_user, onclick: "_gaq.push(['_trackEvent', 'NavBar', 'Profile', 'Click', 1]);"
       %li
         = link_to 'Edit Profile', edit_user_path(current_user)
       %li.divider
